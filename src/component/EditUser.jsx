@@ -35,9 +35,9 @@ function EditUser({ allData, setAllData }) {
 
   return (
     <div>
-      <div>
-        {allData.map((user) => (
-          <div key={user.id} className='card m-4 p-4'>
+      <div className="row">
+      {allData.map((user) => (
+        <div key={user.id} className='card col-12 col-md-4 col-lg-2 m-4 p-4 bg-info'>
             {editingUserId === user.id ? (
               <div>
                 <label>Name:</label>
@@ -46,7 +46,7 @@ function EditUser({ allData, setAllData }) {
                   name='name'
                   value={editedUser.name}
                   onChange={handleChange}
-                  className='form-control' // Apply Bootstrap form-control class
+                  className='form-control'
                 />
                 <label>User Name:</label>
                 <input
@@ -54,7 +54,7 @@ function EditUser({ allData, setAllData }) {
                   name='username'
                   value={editedUser.username}
                   onChange={handleChange}
-                  className='form-control' // Apply Bootstrap form-control class
+                  className='form-control' 
                 />
                 <label>Email:</label>
                 <input
@@ -62,7 +62,7 @@ function EditUser({ allData, setAllData }) {
                   name='email'
                   value={editedUser.email}
                   onChange={handleChange}
-                  className='form-control' // Apply Bootstrap form-control class
+                  className='form-control' 
                 />
                 <label>Phone:</label>
                 <input
@@ -70,7 +70,7 @@ function EditUser({ allData, setAllData }) {
                   name='phone'
                   value={editedUser.phone}
                   onChange={handleChange}
-                  className='form-control' // Apply Bootstrap form-control class
+                  className='form-control' 
                 />
                 <button className='btn btn-primary m-4' onClick={handleSave}>
                   Save
