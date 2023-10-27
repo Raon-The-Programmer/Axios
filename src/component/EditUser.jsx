@@ -20,7 +20,6 @@ function EditUser({ allData, setAllData }) {
   };
 
   const handleSave = () => {
-   
     const updatedData = allData.map((user) => {
       if (user.id === editingUserId) {
         return { ...user, ...editedUser };
@@ -28,7 +27,6 @@ function EditUser({ allData, setAllData }) {
       return user;
     });
 
-    
     setAllData(updatedData);
 
     setEditingUserId(null);
@@ -48,6 +46,7 @@ function EditUser({ allData, setAllData }) {
                   name='name'
                   value={editedUser.name}
                   onChange={handleChange}
+                  className='form-control' // Apply Bootstrap form-control class
                 />
                 <label>User Name:</label>
                 <input
@@ -55,6 +54,7 @@ function EditUser({ allData, setAllData }) {
                   name='username'
                   value={editedUser.username}
                   onChange={handleChange}
+                  className='form-control' // Apply Bootstrap form-control class
                 />
                 <label>Email:</label>
                 <input
@@ -62,6 +62,7 @@ function EditUser({ allData, setAllData }) {
                   name='email'
                   value={editedUser.email}
                   onChange={handleChange}
+                  className='form-control' // Apply Bootstrap form-control class
                 />
                 <label>Phone:</label>
                 <input
@@ -69,8 +70,9 @@ function EditUser({ allData, setAllData }) {
                   name='phone'
                   value={editedUser.phone}
                   onChange={handleChange}
+                  className='form-control' // Apply Bootstrap form-control class
                 />
-                <button className='m-4' onClick={handleSave}>
+                <button className='btn btn-primary m-4' onClick={handleSave}>
                   Save
                 </button>
               </div>
@@ -80,7 +82,7 @@ function EditUser({ allData, setAllData }) {
                 <div className='card-title'>User Name: {user.username}</div>
                 <div className='card-title'>Email: {user.email}</div>
                 <div>Phone: {user.phone}</div>
-                <button className='m-4' onClick={() => handleEdit(user)}>
+                <button className='btn btn-success m-4' onClick={() => handleEdit(user)}>
                   Edit
                 </button>
               </div>
