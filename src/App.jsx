@@ -23,34 +23,15 @@ function App() {
     fetchData();
   }, []);
 
-  const handleUpdateUser = async (editedUser) => {
-    try {
-      const response = await axios.put(
-        `https://jsonplaceholder.typicode.com/users/${editedUser.id}`,
-        editedUser
-      );
-
-      if (response.status === 200) {
-        // Update the user in the state with the edited data
-        setAllData((prevState) =>
-          prevState.map((user) =>
-            user.id === editedUser.id ? { ...user, ...editedUser } : user
-          )
-        );
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  
 
   return (
     <Router>
       <div>
         <Link to='/' className='m-4'>Read Data</Link>
         <Link to='/create' className='m-4'>Create New User</Link>
-        <Link to='/delete' className='m-4'>Delete User</Link>
-        {/* Change the route to include the user's ID */}
-        <Link to='/edit/:userId' className='m-4'>
+        <Link to='/delete' className='m-4'>Delete User</Link> 
+        <Link to='/edit' className='m-4'>
           Edit User
         </Link>
       </div>
@@ -58,15 +39,8 @@ function App() {
         <Route path='/' element={<ReadData allData={allData} />} />
         <Route path='/create' element={<CreateUser allData={allData} setAllData={setAllData} />} />
         <Route path='/delete' element={<DeleteUser allData={allData} setAllData={setAllData} />} />
-        <Route
-          path='/edit/:userId'
-          element={
-            <EditUser
-              user={allData.find((user) => user.id === Number(useParams().userId))}
-              onUpdateUser={(editedUser) => handleUpdateUser(editedUser)}
-            />
-          }
-        />
+        <Route path='/edit' element={<EditUser allData={allData} setAllData={setAllData} />} />
+          
       </Routes>
     </Router>
   );
