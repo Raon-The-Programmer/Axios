@@ -1,11 +1,13 @@
-import axios from 'axios';
+// App.js
 import React, { useEffect, useState } from 'react';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css'; 
 
 import ReadData from './component/ReadData';
 import CreateUser from './component/CreateUser';
 import DeleteUser from './component/DeleteUser';
 import EditUser from './component/EditUser';
+import axios from 'axios';
 
 function App() {
   const [allData, setAllData] = useState([]);
