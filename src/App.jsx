@@ -28,7 +28,7 @@ function App() {
       <div className="container">
         <ul className="nav nav-tabs mt-4">
           <li className="nav-item">
-            <Link to='/' className='nav-link'>Read Data</Link>
+            <Link to='/' className='nav-link'>View Data</Link>
           </li>
           <li className="nav-item">
             <Link to='/create' className='nav-link'>Create New User</Link>
