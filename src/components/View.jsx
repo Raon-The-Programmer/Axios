@@ -1,29 +1,18 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 
-
-const View = () => {
-    const[data,setData] = useState([])
-    const fetchData = async()=>{
-      try{const res = await axios.get('https://jsonplaceholder.typicode.com/users')
-      setData(res.data)}
-      catch(err){
-        console.log('error occured while fetching: ',err)
-      }
-      
-    }
-    useEffect(()=>{fetchData()},[])
-  return (<div>
-    <h2>User List</h2>
-    <div className='container'>
-    {data.map((user) => (
-      <div key={user.id} className="user-card">
-        <h3>{user.name}</h3>
-        <p>Email: {user.email}</p>
-        <p>Phone: {user.phone}</p>
-      </div>
-    ))}</div>
-  </div>)
+function View({ allData }) {
+  return (
+    <div className="row">
+      {allData.map((user) => (
+        <div key={user.id} className='card col-12 col-md-4 col-lg-2 m-4 p-4 bg-info'>
+          <div className='card-title'>Name: {user.name}</div>
+          <div className='card-title'>User Name: {user.username}</div>
+          <div className='card-title'>Email: {user.email}</div>
+          <div>Phone: {user.phone}</div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default View;
